@@ -13,6 +13,13 @@ import fr.epita.maths.FactorialService;
 
 public class TestFactorialService {
 
+	//Log Levels
+	//ERROR 
+	//WARN
+	//INFO
+	//DEBUG
+	//TRACE
+	
 	
 	private static final Logger LOGGER = LogManager.getLogger(TestFactorialService.class);
 	
@@ -23,13 +30,13 @@ public class TestFactorialService {
 	
 	@Before
 	public void beforeEachTest() {
-		System.out.println("before");
+		LOGGER.info("before");
 	}
 	
 	
 	@Test
 	public void passingNegativeSmallIntegerTest() throws Exception {
-		System.out.println("passingNegativeSmallIntegerTest");
+		LOGGER.info("passingNegativeSmallIntegerTest");
 		//passing test
 		//given
 		int negativeInt = -5;
@@ -40,7 +47,7 @@ public class TestFactorialService {
 		try {
 			int result = factorial.calculateFactorial(negativeInt);
 		}catch(Exception e) {
-			System.out.println("we got this exception " + e.getMessage());
+			LOGGER.info("we got this exception " + e.getMessage());
 			Assert.assertTrue(e instanceof IllegalArgumentException);
 			return;
 		}
