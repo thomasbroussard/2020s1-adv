@@ -14,6 +14,7 @@
 			<value>select * from Questions</value>
 		</constructor-arg>
 	</bean>
+	<bean id="questionDAO" class="fr.epita.quiz.services.QuestionDAO" />
 
 	<bean id="mainDS"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">

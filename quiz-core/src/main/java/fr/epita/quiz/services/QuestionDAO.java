@@ -2,25 +2,28 @@ package fr.epita.quiz.services;
 
 import java.util.List;
 
+import org.hibernate.Session;
+import org.hibernate.query.Query;
+
 import fr.epita.quiz.datamodel.Question;
 
-public class QuestionDAO {
+public class QuestionDAO extends GenericDAO<Question, Long>{
 	
-	public void create(Question question) {
-		
-	}
-	public void update(Question question) {
-		
-	}
-	public void delete(Question question) {
-		
-	}
+
 	
 	public List<Question> search(Question question){
-		return null;
-	}
+		Session session = sf.openSession();
+		String titleParam = question.getTitle();
+		
+		Query<Question> searchQuery = session.createQuery("from Question where title = :pTitle", Question.class);
+		searchQuery.setParameter("pTitle", titleParam);
+		List<Question> resultList = searchQuery.list();
+		return resultList;
+		
+	} 
 	public Question getById(Long id){
-		return null;
+		Session session = sf.openSession();
+		return session.get(Question.class, id);
 	}
 	
 	
