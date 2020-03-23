@@ -1,9 +1,8 @@
 package fr.epita.quiz.tests;
 
-import javax.inject.Inject;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -17,15 +16,14 @@ import fr.epita.quiz.datamodel.Question;
 @ContextConfiguration(locations = "/applicationContext.xml")
 public class TestHibernate {
 	
-	@Inject
-	SessionFactory sf;
+	@PersistenceContext
+	EntityManager em;
 	
 	@Test
 	public void testFirstSessionFactory() {
-		Session openSession = sf.openSession();
 		Question question = new Question();
 		question.setTitle("What is a dependency?");
-		openSession.save(question);
+		em.persist(question);
 		
 		Assert.assertNotEquals(0l, question.getId().longValue());
 	}
