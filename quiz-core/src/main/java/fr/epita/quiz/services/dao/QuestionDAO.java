@@ -1,4 +1,4 @@
-package fr.epita.quiz.services;
+package fr.epita.quiz.services.dao;
 
 import java.util.Map;
 

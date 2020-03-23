@@ -24,6 +24,18 @@ public class Answer {
 	@JoinColumn(name="A_QUESTION_FK")
 	private Question question;
 	
+	@ManyToOne
+	@JoinColumn(name="A_USER_FK")
+	private User user;
+	
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
 	public Answer() {
 
 	}
@@ -51,6 +63,8 @@ public class Answer {
 	public void setQuestion(Question question) {
 		this.question = question;
 	}
+
+
 	
 	
 	
