@@ -12,12 +12,17 @@
         http://www.springframework.org/schema/mvc
         http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
-	<bean id="firstQuery" class="java.lang.String">
+	<bean id="firstQuery" class="java.lang.String" scope="">
 		<constructor-arg>
 			<value>select * from Questions</value>
 		</constructor-arg>
 	</bean>
-	<bean id="questionDAO" class="fr.epita.quiz.services.dao.QuestionDAO" />
+	
+	<context:component-scan base-package="fr.epita.quiz.services.dao,fr.epita.quiz.services.business">
+		<context:include-filter type="regex" expression=".*DAO"/>
+		<context:include-filter type="regex" expression=".*DataService"/>
+	</context:component-scan>
+
 
 	<bean id="mainDS"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">

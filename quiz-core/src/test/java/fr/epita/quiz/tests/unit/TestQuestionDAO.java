@@ -1,4 +1,4 @@
-package fr.epita.quiz.tests;
+package fr.epita.quiz.tests.unit;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

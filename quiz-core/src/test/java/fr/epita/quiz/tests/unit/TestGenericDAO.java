@@ -1,4 +1,4 @@
-package fr.epita.quiz.tests;
+package fr.epita.quiz.tests.unit;
 
 import fr.epita.quiz.datamodel.Question;
 import fr.epita.quiz.services.dao.QuestionDAO;

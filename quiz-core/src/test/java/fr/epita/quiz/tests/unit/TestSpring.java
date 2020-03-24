@@ -1,4 +1,4 @@
-package fr.epita.quiz.tests;
+package fr.epita.quiz.tests.unit;
 
 import javax.inject.Inject;
 import javax.inject.Named;

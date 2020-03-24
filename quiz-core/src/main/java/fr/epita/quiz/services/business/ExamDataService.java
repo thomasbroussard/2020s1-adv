@@ -11,6 +11,8 @@ import fr.epita.quiz.services.dao.AnswerDAO;
 import fr.epita.quiz.services.dao.QuestionDAO;
 import fr.epita.quiz.services.dao.UserDAO;
 
+
+
 public class ExamDataService {
 	
 	@Inject
@@ -23,7 +25,7 @@ public class ExamDataService {
 	AnswerDAO answerDAO;
 	
 	@Transactional(value = TxType.REQUIRED)
-	public void answerToQuestion(User user, Question question, Answer answer) {
+	public void answerToQuestion(User user, Question question, Answer answer) throws ExamBusinessException {
 		//check values
 		//if not valid : throw exception?
 		
