@@ -56,6 +56,11 @@ public abstract class GenericDAO<T, I> {
 		return searchQuery.getResultList();
 
 	}
+	
+	public void delete(T entity) {
+		em.refresh(entity);
+		em.remove(entity);
+	}
 
 	public T getById(I id) {
 		return em.find(getEntityClass(), id);
